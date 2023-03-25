@@ -4,21 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eace10de-997c-4c5d-93d2-e1d797bdee11" name="Changes" comment="start">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AnswerChildren.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AnswerCityRegister.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AnswerStudent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AnswerWedding.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ChildrenValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CityRegisterValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MailSender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/StudentOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/StudentValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/StudetnOrderValidtor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WeddingValidator.java" afterDir="false" />
+    <list default="true" id="eace10de-997c-4c5d-93d2-e1d797bdee11" name="Changes" comment="make first approximately frame of application">
+      <change afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/Adult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/Child.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SaveStudentOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SaveStudentOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AnswerChildren.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/AnswerChildren.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AnswerCityRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/AnswerCityRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AnswerStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/AnswerStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AnswerWedding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/AnswerWedding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChildrenValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/validator/ChildrenValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CityRegisterValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/validator/CityRegisterValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MailSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/mail/MailSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SaveStudentOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/SaveStudentOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StudentOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/StudentOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StudentValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/validator/StudentValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StudetnOrderValidtor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/StudentOrderValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WeddingValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/validator/WeddingValidator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,16 +59,16 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.StudetnOrderValidtor">
-    <configuration name="SaveStudentOrder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SaveStudentOrder" />
+  <component name="RunManager" selected="Application.edu.studentorder.SaveStudentOrder">
+    <configuration name="StudentOrderValidator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.studentorder.StudentOrderValidator" />
       <module name="student-payment-project" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StudetnOrderValidtor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="StudetnOrderValidtor" />
+    <configuration name="edu.studentorder.SaveStudentOrder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.studentorder.SaveStudentOrder" />
       <module name="student-payment-project" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -73,8 +76,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.StudetnOrderValidtor" />
-        <item itemvalue="Application.SaveStudentOrder" />
+        <item itemvalue="Application.edu.studentorder.SaveStudentOrder" />
+        <item itemvalue="Application.StudentOrderValidator" />
       </list>
     </recent_temporary>
   </component>
@@ -94,7 +97,9 @@
       <workItem from="1678892544637" duration="1063000" />
       <workItem from="1679059330375" duration="600000" />
       <workItem from="1679110020183" duration="7396000" />
-      <workItem from="1679148250271" duration="1613000" />
+      <workItem from="1679148250271" duration="2852000" />
+      <workItem from="1679408301064" duration="66000" />
+      <workItem from="1679724999276" duration="7092000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1678636988026</created>
@@ -110,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678638106539</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="make first approximately frame of application">
+      <created>1679150028984</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679150028984</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,6 +141,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="start" />
-    <option name="LAST_COMMIT_MESSAGE" value="start" />
+    <MESSAGE value="make first approximately frame of application" />
+    <option name="LAST_COMMIT_MESSAGE" value="make first approximately frame of application" />
   </component>
 </project>
