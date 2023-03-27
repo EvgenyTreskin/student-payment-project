@@ -10,9 +10,10 @@ public class Adult extends Person {
     private String university;
     private String studentId;
 
-    @Override
-    public String getPersonString() {
-        return surName + " " + givenName + " : " + passportNumber + " " + passportSerial;
+    public Adult(){}
+
+    public Adult(String surName, String givenName, String patronymic, LocalDate dateOfBirth) {
+        super(surName, givenName, patronymic, dateOfBirth);
     }
 
 

@@ -30,35 +30,34 @@ public class StudentOrderValidator {
     }
 
     public void checkAll() {
+        StudentOrder[] studentOrderArray = readStudentOrders();
+        for (StudentOrder studentOrder:studentOrderArray){
+            System.out.println();
+            checkOneOrder(studentOrder);
+        }
+    }
 
-        while (true) {
-            StudentOrder studentOrder = readStudentOrder();
-
-            if (studentOrder == null) {
-                break;
-            } else {
-                System.out.println("Finish");
-                AnswerCityRegister citiAnswer = checkCityRegister(studentOrder);
-                if (!citiAnswer.success) {
-                    //continue;
-                    break;
-                }
-                AnswerWedding weddingAnswer = checkWedding(studentOrder);
-                AnswerChildren childrenAnswer = checkChildren(studentOrder);
-                AnswerStudent studentAnswer = checkStudent(studentOrder);
-
-                sendMail(studentOrder);
-            }
-
+    public StudentOrder[] readStudentOrders() {
+        StudentOrder[] studentOrdersArray = new StudentOrder[3];
+        for (int i = 0; i < studentOrdersArray.length; i++) {
+            studentOrdersArray[i] = SaveStudentOrder.buildStudentOrder(i);
         }
 
+        return studentOrdersArray;
+    }
+
+    public void checkOneOrder(StudentOrder studentOrder){
+        System.out.println("Finish");
+        AnswerCityRegister citiAnswer = checkCityRegister(studentOrder);
+
+        AnswerWedding weddingAnswer = checkWedding(studentOrder);
+        AnswerChildren childrenAnswer = checkChildren(studentOrder);
+        AnswerStudent studentAnswer = checkStudent(studentOrder);
+
+        sendMail(studentOrder);
     }
 
 
-    public StudentOrder readStudentOrder() {
-        StudentOrder studentOrder = new StudentOrder();
-        return studentOrder;
-    }
 
     public AnswerCityRegister checkCityRegister(StudentOrder studentOrder) {
         return cityRegisterValidator.checkCityRegister(studentOrder);
