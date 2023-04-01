@@ -1,4 +1,4 @@
-package edu.studentorder.domain;
+package edu.studentorder.domain.register;
 
 public class CityRegisterCheckerResponse {
     private boolean existing;
@@ -18,5 +18,12 @@ public class CityRegisterCheckerResponse {
 
     public void setTemporal(Boolean temporal) {
         this.temporal = temporal;
+    }
+    @Override
+    public String toString() {
+        return "CityRegisterCheckerResponse{" +
+                "existing=" + existing +
+                ", temporal=" + temporal +
+                '}';
     }
 }

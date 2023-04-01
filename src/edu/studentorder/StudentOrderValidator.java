@@ -1,6 +1,10 @@
 package edu.studentorder;
 
 import edu.studentorder.domain.*;
+import edu.studentorder.domain.children.AnswerChildren;
+import edu.studentorder.domain.register.AnswerCityRegister;
+import edu.studentorder.domain.student.AnswerStudent;
+import edu.studentorder.domain.wedding.AnswerWedding;
 import edu.studentorder.mail.MailSender;
 import edu.studentorder.validator.ChildrenValidator;
 import edu.studentorder.validator.CityRegisterValidator;
@@ -47,14 +51,14 @@ public class StudentOrderValidator {
     }
 
     public void checkOneOrder(StudentOrder studentOrder){
-        System.out.println("Finish");
+
         AnswerCityRegister citiAnswer = checkCityRegister(studentOrder);
 
-        AnswerWedding weddingAnswer = checkWedding(studentOrder);
-        AnswerChildren childrenAnswer = checkChildren(studentOrder);
-        AnswerStudent studentAnswer = checkStudent(studentOrder);
-
-        sendMail(studentOrder);
+//        AnswerWedding weddingAnswer = checkWedding(studentOrder);
+//        AnswerChildren childrenAnswer = checkChildren(studentOrder);
+//        AnswerStudent studentAnswer = checkStudent(studentOrder);
+//
+//        sendMail(studentOrder);
     }
 
 
