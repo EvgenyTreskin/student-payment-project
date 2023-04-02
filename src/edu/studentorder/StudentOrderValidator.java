@@ -11,6 +11,9 @@ import edu.studentorder.validator.CityRegisterValidator;
 import edu.studentorder.validator.StudentValidator;
 import edu.studentorder.validator.WeddingValidator;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class StudentOrderValidator {
 
     private CityRegisterValidator cityRegisterValidator;
@@ -34,23 +37,24 @@ public class StudentOrderValidator {
     }
 
     public void checkAll() {
-        StudentOrder[] studentOrderArray = readStudentOrders();
-        for (StudentOrder studentOrder:studentOrderArray){
-            System.out.println();
+        List<StudentOrder> studentOrderList = readStudentOrders();
+        for (StudentOrder studentOrder : studentOrderList) {
+
             checkOneOrder(studentOrder);
         }
     }
 
-    public StudentOrder[] readStudentOrders() {
-        StudentOrder[] studentOrdersArray = new StudentOrder[3];
-        for (int i = 0; i < studentOrdersArray.length; i++) {
-            studentOrdersArray[i] = SaveStudentOrder.buildStudentOrder(i);
+    public List<StudentOrder> readStudentOrders() {
+        List<StudentOrder> studentOrderList = new LinkedList<>();
+        for (int i = 0; i < 5; i++) {
+            StudentOrder studentOrder = SaveStudentOrder.buildStudentOrder(i);
+            studentOrderList.add(studentOrder);
         }
 
-        return studentOrdersArray;
+        return studentOrderList;
     }
 
-    public void checkOneOrder(StudentOrder studentOrder){
+    public void checkOneOrder(StudentOrder studentOrder) {
 
         AnswerCityRegister citiAnswer = checkCityRegister(studentOrder);
 
@@ -60,7 +64,6 @@ public class StudentOrderValidator {
 //
 //        sendMail(studentOrder);
     }
-
 
 
     public AnswerCityRegister checkCityRegister(StudentOrder studentOrder) {

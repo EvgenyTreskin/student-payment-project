@@ -3,7 +3,6 @@ package edu.studentorder;
 import edu.studentorder.domain.Address;
 import edu.studentorder.domain.Adult;
 import edu.studentorder.domain.Child;
-import edu.studentorder.domain.Person;
 import edu.studentorder.domain.StudentOrder;
 
 import java.time.LocalDate;
@@ -51,15 +50,22 @@ public class SaveStudentOrder {
         wife.setStudentId("" + (200000 + id));
         wife.setAddress(address);
         // Ребенок
-        Child child = new Child("Петрова", "Ирина", "Викторовна", LocalDate.of(2018, 6, 29));
-        child.setCertificateNumber("" + (300000 + id));
-        child.setIssueDate(LocalDate.of(2018, 7, 19));
-        child.setIssueDepartment("ОТдел ЗАГС №" + id);
-        child.setAddress(address);
+        Child child1 = new Child("Петрова", "Ирина", "Викторовна", LocalDate.of(2018, 6, 29));
+        child1.setCertificateNumber("" + (300000 + id));
+        child1.setIssueDate(LocalDate.of(2018, 7, 19));
+        child1.setIssueDepartment("Отдел ЗАГС №" + id);
+        child1.setAddress(address);
+        // Ребенок
+        Child child2 = new Child("Петров", "Евгений", "Викторович", LocalDate.of(2018, 6, 29));
+        child2.setCertificateNumber("" + (400000 + id));
+        child2.setIssueDate(LocalDate.of(2018, 7, 19));
+        child2.setIssueDepartment("Отдел ЗАГС №" + id);
+        child2.setAddress(address);
 
         studentOrder.setHusband(husband);
         studentOrder.setWife(wife);
-        studentOrder.setChild(child);
+        studentOrder.addChild(child1);
+        studentOrder.addChild(child2);
         return studentOrder;
     }
 }

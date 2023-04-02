@@ -4,27 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eace10de-997c-4c5d-93d2-e1d797bdee11" name="Changes" comment="try polymorphism and interfaces, add some new function in frame of app">
-      <change afterPath="$PROJECT_DIR$/src/edu/studentorder/exeption/CityRegisterException.java" afterDir="false" />
+    <list default="true" id="eace10de-997c-4c5d-93d2-e1d797bdee11" name="Changes" comment="refactor, add real object">
+      <change afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/register/AnswerCityRegisterItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/studentorder/SaveStudentOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/SaveStudentOrder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/studentorder/StudentOrderValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/StudentOrderValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/domain/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/domain/AnswerChildren.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/children/AnswerChildren.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/domain/AnswerCityRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/register/AnswerCityRegister.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/domain/AnswerStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/student/AnswerStudent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/domain/AnswerWedding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/wedding/AnswerWedding.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/domain/Child.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/Child.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/domain/CityRegisterCheckerResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/register/CityRegisterCheckerResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/domain/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/studentorder/domain/StudentOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/StudentOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/validator/ChildrenValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/validator/ChildrenValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/validator/CityRegisterChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/validator/register/CityRegisterChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/domain/register/AnswerCityRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/register/AnswerCityRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/domain/register/CityRegisterCheckerResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/register/CityRegisterResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/studentorder/validator/CityRegisterValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/validator/CityRegisterValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/validator/FakeCityRegisterChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/validator/register/FakeCityRegisterChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/validator/RealCityRegisterChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/validator/register/RealCityRegisterChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/validator/StudentValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/validator/StudentValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/validator/WeddingValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/validator/WeddingValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/validator/register/CityRegisterChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/validator/register/CityRegisterChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/validator/register/FakeCityRegisterChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/validator/register/FakeCityRegisterChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/validator/register/RealCityRegisterChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/validator/register/RealCityRegisterChecker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +54,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.StudentOrderValidator">
+  <component name="RunManager" selected="Application.edu.studentorder.SaveStudentOrder">
     <configuration name="StudentOrderValidator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.studentorder.StudentOrderValidator" />
       <module name="student-payment-project" />
@@ -80,8 +71,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.StudentOrderValidator" />
         <item itemvalue="Application.edu.studentorder.SaveStudentOrder" />
+        <item itemvalue="Application.StudentOrderValidator" />
       </list>
     </recent_temporary>
   </component>
@@ -111,7 +102,10 @@
       <workItem from="1679925932819" duration="4449000" />
       <workItem from="1680013344286" duration="2101000" />
       <workItem from="1680103212601" duration="605000" />
-      <workItem from="1680329170162" duration="5178000" />
+      <workItem from="1680329170162" duration="5836000" />
+      <workItem from="1680410650946" duration="10525000" />
+      <workItem from="1680456647582" duration="890000" />
+      <workItem from="1680458041757" duration="3023000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1678636988026</created>
@@ -148,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679939060432</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="refactor, add real object">
+      <created>1680334451430</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1680334451430</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +171,7 @@
     <MESSAGE value="make first approximately frame of application" />
     <MESSAGE value="add getter, setter, constructor, extension if first approximately frame of application" />
     <MESSAGE value="try polymorphism and interfaces, add some new function in frame of app" />
-    <option name="LAST_COMMIT_MESSAGE" value="try polymorphism and interfaces, add some new function in frame of app" />
+    <MESSAGE value="refactor, add real object" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor, add real object" />
   </component>
 </project>
