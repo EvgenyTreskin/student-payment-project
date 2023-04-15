@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eace10de-997c-4c5d-93d2-e1d797bdee11" name="Changes" comment="start making register answer logic, change arrays to lists of persons, add enum with type of answer">
-      <change afterPath="$PROJECT_DIR$/src/edu/studentorder/exeption/TransportException.java" afterDir="false" />
+    <list default="true" id="eace10de-997c-4c5d-93d2-e1d797bdee11" name="Changes" comment="start making SQL DB">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/exeption/CityRegisterException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/exeption/CityRegisterException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/validator/CityRegisterValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/validator/CityRegisterValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/validator/register/CityRegisterChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/validator/register/CityRegisterChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/validator/register/FakeCityRegisterChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/validator/register/FakeCityRegisterChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/validator/register/RealCityRegisterChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/validator/register/RealCityRegisterChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student_project.sql" beforeDir="false" afterPath="$PROJECT_DIR$/student_project.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +101,7 @@
       <workItem from="1681026405637" duration="411000" />
       <workItem from="1681038130476" duration="105000" />
       <workItem from="1681038371688" duration="594000" />
-      <workItem from="1681532285229" duration="1222000" />
+      <workItem from="1681532285229" duration="4356000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1678636988026</created>
@@ -157,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680461348442</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="start making SQL DB">
+      <created>1681548566592</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681548566592</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,7 +183,8 @@
     <MESSAGE value="try polymorphism and interfaces, add some new function in frame of app" />
     <MESSAGE value="refactor, add real object" />
     <MESSAGE value="start making register answer logic, change arrays to lists of persons, add enum with type of answer" />
-    <option name="LAST_COMMIT_MESSAGE" value="start making register answer logic, change arrays to lists of persons, add enum with type of answer" />
+    <MESSAGE value="start making SQL DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="start making SQL DB" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
