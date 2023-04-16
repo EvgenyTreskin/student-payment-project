@@ -5,14 +5,24 @@ import edu.studentorder.domain.Adult;
 import edu.studentorder.domain.Child;
 import edu.studentorder.domain.StudentOrder;
 
+import java.sql.*;
 import java.time.LocalDate;
 
 public class SaveStudentOrder {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
-        StudentOrder s = buildStudentOrder(10);
+        Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/jc_student",
+                "postgres", "Postgres");
 
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM jc_street");
+        while (resultSet.next()){
+            System.out.println(resultSet.getLong(1) + " : " + resultSet.getString(2));
+        }
+
+
+//        StudentOrder s = buildStudentOrder(10);
 //        StudentOrder studentOrder = new StudentOrder();
 //        long ans = saveStudentOrder(studentOrder);
 //        System.out.println(ans);
