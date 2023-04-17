@@ -1,26 +1,21 @@
 package edu.studentorder;
 
-import edu.studentorder.domain.Address;
-import edu.studentorder.domain.Adult;
-import edu.studentorder.domain.Child;
-import edu.studentorder.domain.StudentOrder;
+import edu.studentorder.DAO.DictionaryDaoImpl;
+import edu.studentorder.domain.*;
+import edu.studentorder.exeption.DaoException;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.List;
 
 public class SaveStudentOrder {
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws DaoException {
 
-        Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/jc_student",
-                "postgres", "Postgres");
-
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM jc_street");
-        while (resultSet.next()){
-            System.out.println(resultSet.getLong(1) + " : " + resultSet.getString(2));
+        List<Street> d = new DictionaryDaoImpl().findStreet("ee");
+        for (Street s: d) {
+            System.out.println(s.getStreetName());
         }
-
 
 //        StudentOrder s = buildStudentOrder(10);
 //        StudentOrder studentOrder = new StudentOrder();
@@ -33,15 +28,17 @@ public class SaveStudentOrder {
         System.out.println("saveStudentOrder:");
         return answer;
     }
-    static StudentOrder buildStudentOrder(long id){
+
+    static StudentOrder buildStudentOrder(long id) {
         StudentOrder studentOrder = new StudentOrder();
         studentOrder.setStudentOrderId(id);
         studentOrder.setMarriageCertificateId("" + (123456000 + id));
         studentOrder.setMarriageDate(LocalDate.of(2016, 7, 4));
         studentOrder.setMarriageOffice("Отдел ЗАГС");
 
+        Street street = new Street(1L, "First street");
 
-        Address address = new Address("195000", "Заневский пр.", "12", "", "142");
+        Address address = new Address("195000", street, "12", "", "142");
 
         // Муж
         Adult husband = new Adult("Петров", "Виктор", "Сергеевич", LocalDate.of(1997, 8, 24));
