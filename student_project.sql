@@ -3,6 +3,7 @@ DROP TABLE IF EXISTS jc_student_order;
 DROP TABLE IF EXISTS jc_passport_office;
 DROP TABLE IF EXISTS jc_register_office;
 DROP TABLE IF EXISTS jc_country_structure;
+DROP TABLE IF EXISTS jc_university;
 DROP TABLE IF EXISTS jc_street;
 
 CREATE TABLE jc_street
@@ -10,6 +11,13 @@ CREATE TABLE jc_street
     street_code integer not null,
     street_name varchar(300),
     PRIMARY KEY (street_code)
+);
+
+CREATE TABLE jc_university
+(
+    university_id integer not null,
+    university_name varchar(300),
+    PRIMARY KEY (university_id)
 );
 
 CREATE TABLE jc_country_structure
@@ -53,6 +61,8 @@ CREATE TABLE jc_student_order
     husband_building varchar(10) not null,
     husband_extension varchar(10),
     husband_apartment varchar(10),
+    husband_university_id integer not null,
+    husband_student_number varchar(30) not null,
     wife_surname varchar(100) not null,
     wife_given_name varchar(100) not null,
     wife_patronymic varchar(100) not null,
@@ -66,6 +76,8 @@ CREATE TABLE jc_student_order
     wife_building varchar(10) not null,
     wife_extension varchar(10),
     wife_apartment varchar(10),
+    wife_university_id integer not null,
+    wife_student_number varchar(30) not null,
     certificate_id varchar(20) not null,
     register_office_id integer not null,
     marriage_date date not null,
@@ -92,6 +104,11 @@ CREATE TABLE jc_student_child
     child_extension varchar(10),
     child_apartment varchar(10),
     PRIMARY KEY (student_child_id),
+    FOREIGN KEY (student_order_id) REFERENCES jc_student_order(student_order_id) ON DELETE RESTRICT,
     FOREIGN KEY(child_street_code) REFERENCES jc_street(street_code)   ON DELETE RESTRICT,
-    FOREIGN KEY(child_register_office_id) REFERENCES jc_street(street_code) ON DELETE RESTRICT,
+    FOREIGN KEY(child_register_office_id) REFERENCES jc_street(street_code) ON DELETE RESTRICT
 );
+
+CREATE INDEX idx_student_order_status ON jc_student_order(student_order_status);
+
+CREATE INDEX idx_student_order_id ON jc_student_child(student_order_id);

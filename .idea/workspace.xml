@@ -4,19 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eace10de-997c-4c5d-93d2-e1d797bdee11" name="Changes" comment="connect to postgresql DB">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/postgresql_42_6_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/studentorder/DAO/DictionaryDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/studentorder/DAO/DictionaryDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/Street.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/studentorder/exeption/DaoException.java" afterDir="false" />
+    <list default="true" id="eace10de-997c-4c5d-93d2-e1d797bdee11" name="Changes" comment="add DAO, properties">
+      <change afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/PassportOffice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/RegisterOffice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/student_data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/DAO/DictionaryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/DAO/DictionaryDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/DAO/DictionaryDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/DAO/DictionaryDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/studentorder/SaveStudentOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/SaveStudentOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/domain/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/config/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/domain/Adult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/Adult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/domain/Child.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/Child.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/domain/StudentOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/StudentOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student_project.sql" beforeDir="false" afterPath="$PROJECT_DIR$/student_project.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +57,8 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "database.query.execution"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -123,7 +125,10 @@
       <workItem from="1681532285229" duration="4371000" />
       <workItem from="1681624405716" duration="6768000" />
       <workItem from="1681665811371" duration="595000" />
-      <workItem from="1681723420104" duration="3920000" />
+      <workItem from="1681723420104" duration="9178000" />
+      <workItem from="1681797438463" duration="1717000" />
+      <workItem from="1681800751340" duration="1248000" />
+      <workItem from="1681802026456" duration="3387000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1678636988026</created>
@@ -195,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681637152738</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add DAO, properties">
+      <created>1681728526568</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1681728526568</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,7 +233,8 @@
     <MESSAGE value="start making register answer logic, change arrays to lists of persons, add enum with type of answer" />
     <MESSAGE value="start making SQL DB" />
     <MESSAGE value="connect to postgresql DB" />
-    <option name="LAST_COMMIT_MESSAGE" value="connect to postgresql DB" />
+    <MESSAGE value="add DAO, properties" />
+    <option name="LAST_COMMIT_MESSAGE" value="add DAO, properties" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
