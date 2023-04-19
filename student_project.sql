@@ -33,7 +33,7 @@ CREATE TABLE jc_passport_office
     passport_office_area_id char(12) not null,
     passport_office_name varchar(200),
     PRIMARY KEY (passport_office_id),
-    FOREIGN KEY(passport_office_area_id) REFERENCES jc_contry_structure(area_id) ON DELETE RESTRICT
+    FOREIGN KEY(passport_office_area_id) REFERENCES jc_country_structure(area_id) ON DELETE RESTRICT
 );
 
 CREATE TABLE jc_register_office
@@ -42,12 +42,14 @@ CREATE TABLE jc_register_office
     register_office_area_id char(12) not null,
     register_office_name varchar(200),
     PRIMARY KEY (register_office_id),
-    FOREIGN KEY(register_office_area_id) REFERENCES jc_contry_structure(area_id) ON DELETE RESTRICT
+    FOREIGN KEY(register_office_area_id) REFERENCES jc_country_structure(area_id) ON DELETE RESTRICT
 );
 
 CREATE TABLE jc_student_order
 (
     student_order_id SERIAL,
+    student_order_status int not null ,
+    student_order_date timestamp not null,
     husband_surname varchar(100) not null,
     husband_given_name varchar(100) not null,
     husband_patronymic varchar(100) not null,
@@ -61,8 +63,6 @@ CREATE TABLE jc_student_order
     husband_building varchar(10) not null,
     husband_extension varchar(10),
     husband_apartment varchar(10),
-    husband_university_id integer not null,
-    husband_student_number varchar(30) not null,
     wife_surname varchar(100) not null,
     wife_given_name varchar(100) not null,
     wife_patronymic varchar(100) not null,
@@ -76,8 +76,6 @@ CREATE TABLE jc_student_order
     wife_building varchar(10) not null,
     wife_extension varchar(10),
     wife_apartment varchar(10),
-    wife_university_id integer not null,
-    wife_student_number varchar(30) not null,
     certificate_id varchar(20) not null,
     register_office_id integer not null,
     marriage_date date not null,
