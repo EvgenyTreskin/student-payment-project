@@ -63,6 +63,8 @@ CREATE TABLE jc_student_order
     husband_building varchar(10) not null,
     husband_extension varchar(10),
     husband_apartment varchar(10),
+    husband_university_id integer not null,
+    husband_student_number varchar (30) not null,
     wife_surname varchar(100) not null,
     wife_given_name varchar(100) not null,
     wife_patronymic varchar(100) not null,
@@ -76,12 +78,18 @@ CREATE TABLE jc_student_order
     wife_building varchar(10) not null,
     wife_extension varchar(10),
     wife_apartment varchar(10),
+    wife_university_id integer not null,
+    wife_student_number varchar (30) not null,
     certificate_id varchar(20) not null,
     register_office_id integer not null,
     marriage_date date not null,
     PRIMARY KEY (student_order_id),
     FOREIGN KEY(husband_street_code) REFERENCES jc_street(street_code)   ON DELETE RESTRICT,
+    FOREIGN KEY(husband_passport_office_id) REFERENCES jc_passport_office(passport_office_id)   ON DELETE RESTRICT,
+    FOREIGN KEY(husband_university_id) REFERENCES jc_university(university_id)   ON DELETE RESTRICT,
     FOREIGN KEY(wife_street_code) REFERENCES jc_street(street_code) ON DELETE RESTRICT,
+    FOREIGN KEY(wife_passport_office_id) REFERENCES jc_passport_office(passport_office_id)   ON DELETE RESTRICT,
+    FOREIGN KEY(wife_university_id) REFERENCES jc_university(university_id)   ON DELETE RESTRICT,
     FOREIGN KEY(register_office_id) REFERENCES jc_register_office(register_office_id)  ON DELETE RESTRICT
 );
 

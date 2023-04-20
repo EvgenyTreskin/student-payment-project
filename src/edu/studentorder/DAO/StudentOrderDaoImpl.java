@@ -16,15 +16,16 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
             "husband_passport_number, husband_passport_date," +
             " husband_passport_office_id, husband_post_index," +
             " husband_street_code, husband_building, husband_extension, " +
-            "husband_apartment," +
+            "husband_apartment, husband_university_id, husband_student_number," +
             " wife_surname, wife_given_name, wife_patronymic, " +
             "wife_date_of_birth, wife_passport_serial, wife_passport_number," +
             " wife_passport_date, wife_passport_office_id, wife_post_index," +
             " wife_street_code, wife_building, wife_extension, "
-            + "wife_apartment, certificate_id," +
+            + "wife_apartment, wife_university_id, wife_student_number," +
+            "certificate_id," +
             " register_office_id, marriage_date)\n" +
             "\tVALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?," +
-            " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
     private static final String INSERT_CHILD = "INSERT INTO public.jc_student_child(\n" +
             "\t student_order_id, child_surname, child_given_name, " +
@@ -47,29 +48,39 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
     public Long saveStudentOrder(StudentOrder studentOrder) throws DaoException {
         Long result = -1L;
 
-        try (PreparedStatement statement = getConnection().prepareStatement(INSERT_ORDER, new String[]{"student_order_id"})) {
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(INSERT_ORDER, new String[]{"student_order_id"})) {
 
-            //Header
-            statement.setInt(1, StudentOrderStatus.START.ordinal());
-            statement.setTimestamp(2, java.sql.Timestamp.valueOf(LocalDateTime.now()));
+            connection.setAutoCommit(false);
 
-            //Husband and wife
-            setParametersForAdult(statement, 3, studentOrder.getHusband());
-            setParametersForAdult(statement, 16, studentOrder.getWife());
+            try {
+                //Header
+                statement.setInt(1, StudentOrderStatus.START.ordinal());
+                statement.setTimestamp(2, java.sql.Timestamp.valueOf(LocalDateTime.now()));
 
-            // Marriage
-            statement.setString(29, studentOrder.getMarriageCertificateId());
-            statement.setLong(30, studentOrder.getMarriageOffice().getOfficeId());
-            statement.setDate(31, Date.valueOf(studentOrder.getMarriageDate()));
+                //Husband and wife
+                setParametersForAdult(statement, 3, studentOrder.getHusband());
+                setParametersForAdult(statement, 18, studentOrder.getWife());
 
-            statement.executeUpdate();
+                // Marriage
+                statement.setString(33, studentOrder.getMarriageCertificateId());
+                statement.setLong(34, studentOrder.getMarriageOffice().getOfficeId());
+                statement.setDate(35, Date.valueOf(studentOrder.getMarriageDate()));
 
-            ResultSet generatedKeysResultSet = statement.getGeneratedKeys();
-            if (generatedKeysResultSet.next()) {
-                result = generatedKeysResultSet.getLong(1);
+                statement.executeUpdate();
+
+                ResultSet generatedKeysResultSet = statement.getGeneratedKeys();
+                if (generatedKeysResultSet.next()) {
+                    result = generatedKeysResultSet.getLong(1);
+                }
+
+                saveChildren(connection, studentOrder, result);
+
+                connection.commit();
+            } catch (SQLException e){
+                connection.rollback();
+                throw e;
             }
-
-            saveChildren(getConnection(), studentOrder, result);
 
         } catch (SQLException e) {
             throw new DaoException(e);
@@ -78,12 +89,13 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
     }
 
     private void saveChildren(Connection connection, StudentOrder studentOrder, Long studentOrderId) throws SQLException {
-        try (PreparedStatement statement = getConnection().prepareStatement(INSERT_CHILD)) {
+        try (PreparedStatement statement = connection.prepareStatement(INSERT_CHILD)) {
             for (Child child : studentOrder.getChildren()) {
                 statement.setLong(1, studentOrderId);
                 setParametersForChild(statement, child);
-                statement.executeUpdate();
+                statement.addBatch();
             }
+            statement.executeBatch();
         }
     }
 
@@ -110,6 +122,8 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
         statement.setDate(start + 6, Date.valueOf(adult.getIssueDate()));
         statement.setLong(start + 7, adult.getIssueDepartment().getOfficeId());
         setParametersForAddress(statement, start, adult);
+        statement.setLong(start + 13, adult.getUniversity().getUniversityId());
+        statement.setString(start + 14, adult.getStudentId());
     }
 
     private void setParametersForAddress(PreparedStatement statement, int start, Person person) throws SQLException {
