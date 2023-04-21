@@ -6,6 +6,8 @@ import edu.studentorder.exeption.DaoException;
 
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.LinkedList;
+import java.util.List;
 
 public class StudentOrderDaoImpl implements StudentOrderDao {
 
@@ -20,10 +22,9 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
             " wife_surname, wife_given_name, wife_patronymic, " +
             "wife_date_of_birth, wife_passport_serial, wife_passport_number," +
             " wife_passport_date, wife_passport_office_id, wife_post_index," +
-            " wife_street_code, wife_building, wife_extension, "
-            + "wife_apartment, wife_university_id, wife_student_number," +
-            "certificate_id," +
-            " register_office_id, marriage_date)\n" +
+            " wife_street_code, wife_building, wife_extension, " +
+            "wife_apartment, wife_university_id, wife_student_number," +
+            "certificate_id, register_office_id, marriage_date)\n" +
             "\tVALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?," +
             " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
@@ -35,6 +36,10 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
             "\tVALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
 
+    private static final String SELECT_ORDERS =
+            "SELECT * FROM jc_student_order WHERE student_order_status = 0" +
+                    " ORDER BY student_order_date";
+
     //TODO refactoring - make one method
     private Connection getConnection() throws SQLException {
         Connection connection = DriverManager.getConnection
@@ -42,6 +47,77 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
                         Config.getProperty(Config.DB_LOGIN),
                         Config.getProperty(Config.DB_PASSWORD));
         return connection;
+    }
+
+
+    @Override
+    public List<StudentOrder> getStudentOrders() throws DaoException {
+        List<StudentOrder> result = new LinkedList<>();
+
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(SELECT_ORDERS, new String[]{"student_order_id"})) {
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                StudentOrder studentOrder = new StudentOrder();
+                fillStudentOrder(resultSet, studentOrder);
+                fillMarriage(resultSet, studentOrder);
+                Adult husband = fillAdult(resultSet, "husband_");
+                Adult wife = fillAdult(resultSet, "wife_");
+                studentOrder.setHusband(husband);
+                studentOrder.setWife(wife);
+
+                result.add(studentOrder);
+            }
+            resultSet.close();
+        } catch (SQLException e) {
+            throw new DaoException(e);
+        }
+        return result;
+    }
+
+    private Adult fillAdult(ResultSet resultSet, String prefix) throws SQLException {
+        Adult adult = new Adult();
+        adult.setSurName(resultSet.getString(prefix + "surname"));
+        adult.setGivenName(resultSet.getString(prefix + "given_name"));
+        adult.setPatronymic(resultSet.getString(prefix +"patronymic"));
+        adult.setDateOfBirth(resultSet.getDate(prefix + "date_of_birth").toLocalDate());
+        adult.setPassportSerial(resultSet.getString(prefix + "passport_serial"));
+        adult.setPassportNumber(resultSet.getString(prefix + "passport_number"));
+        adult.setIssueDate(resultSet.getDate(prefix + "passport_date").toLocalDate());
+
+        PassportOffice passportOffice = new PassportOffice(resultSet.getLong(prefix + "passport_office_id"), "", "");
+        adult.setIssueDepartment(passportOffice);
+        Address address = new Address();
+        Street street = new Street(resultSet.getLong(prefix + "street_code"), "");
+        address.setStreet(street);
+        address.setPostCode(resultSet.getString(prefix + "post_index"));
+        address.setBuilding(resultSet.getString(prefix + "building"));
+        address.setExtension(resultSet.getString(prefix + "extension"));
+        address.setApartment(resultSet.getString(prefix + "apartment"));
+        adult.setAddress(address);
+
+        University university = new University(resultSet.getLong(prefix + "university_id"), "");
+        adult.setUniversity(university);
+        adult.setStudentId(resultSet.getString(prefix + "student_number"));
+
+        return adult;
+    }
+
+    private void fillMarriage(ResultSet resultSet, StudentOrder studentOrder) throws SQLException {
+        studentOrder.setMarriageCertificateId(resultSet.getString("certificate_id"));
+        studentOrder.setMarriageDate(resultSet.getDate("marriage_date").toLocalDate());
+
+    }
+
+    private void fillStudentOrder(ResultSet resultSet, StudentOrder studentOrder) throws SQLException {
+        studentOrder.setStudentOrderId(resultSet.getLong("student_order_id"));
+        studentOrder.setStudentOrderDate(resultSet.getTimestamp("student_order_date").toLocalDateTime());
+        studentOrder.setStudentOrderStatus(StudentOrderStatus.fromValue(resultSet.getInt("student_order_status")));
+
+        Long registerOfficeId = resultSet.getLong("register_office_id");
+        RegisterOffice registerOffice = new RegisterOffice(registerOfficeId, "", "");
+        studentOrder.setMarriageOffice(registerOffice);
     }
 
     @Override
@@ -77,7 +153,7 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
                 saveChildren(connection, studentOrder, result);
 
                 connection.commit();
-            } catch (SQLException e){
+            } catch (SQLException e) {
                 connection.rollback();
                 throw e;
             }
@@ -87,6 +163,7 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
         }
         return result;
     }
+
 
     private void saveChildren(Connection connection, StudentOrder studentOrder, Long studentOrderId) throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement(INSERT_CHILD)) {

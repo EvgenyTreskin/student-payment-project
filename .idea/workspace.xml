@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eace10de-997c-4c5d-93d2-e1d797bdee11" name="Changes" comment="first adult and child entry in db">
-      <change afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/University.java" afterDir="false" />
+    <list default="true" id="eace10de-997c-4c5d-93d2-e1d797bdee11" name="Changes" comment="add more student data in db">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/DAO/StudentOrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/DAO/StudentOrderDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/studentorder/DAO/StudentOrderDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/DAO/StudentOrderDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/studentorder/SaveStudentOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/SaveStudentOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/domain/Adult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/Adult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/student_data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student_project.sql" beforeDir="false" afterPath="$PROJECT_DIR$/student_project.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/studentorder/domain/StudentOrderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/studentorder/domain/StudentOrderStatus.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +134,11 @@
       <workItem from="1681894345702" duration="3016000" />
       <workItem from="1681906231255" duration="2591000" />
       <workItem from="1681971988680" duration="7246000" />
-      <workItem from="1681990473172" duration="1655000" />
+      <workItem from="1681990473172" duration="2420000" />
+      <workItem from="1681998874773" duration="2425000" />
+      <workItem from="1682003720181" duration="1088000" />
+      <workItem from="1682004863366" duration="321000" />
+      <workItem from="1682098129238" duration="2100000" />
     </task>
     <task id="LOCAL-00001" summary="start">
       <created>1678636988026</created>
@@ -229,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681908817593</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="add more student data in db">
+      <created>1681992308801</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1681992308801</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,7 +267,8 @@
     <MESSAGE value="add DAO, properties" />
     <MESSAGE value="add findPassport and findRegister in DAO" />
     <MESSAGE value="first adult and child entry in db" />
-    <option name="LAST_COMMIT_MESSAGE" value="first adult and child entry in db" />
+    <MESSAGE value="add more student data in db" />
+    <option name="LAST_COMMIT_MESSAGE" value="add more student data in db" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
