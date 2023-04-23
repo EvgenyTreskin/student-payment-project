@@ -8,6 +8,7 @@ import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StudentOrderDaoImpl implements StudentOrderDao {
 
@@ -37,9 +38,24 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
 
 
     private static final String SELECT_ORDERS =
-            "SELECT so.*, ro.register_office_area_id, ro.register_office_name FROM jc_student_order so " +
+            "SELECT so.*, ro.register_office_area_id, ro.register_office_name, " +
+                    "po_h.passport_office_area_id as husband_passport_office_area_id, " +
+                    "po_h.passport_office_name as husband_passport_office_name," +
+                    "po_w.passport_office_area_id as wife_passport_office_area_id, " +
+                    "po_w.passport_office_name as wife_passport_office_name " +
+                    "FROM jc_student_order so\n" +
                     "INNER JOIN jc_register_office ro ON ro.register_office_id = so.register_office_id " +
-                    "WHERE student_order_status = 0 ORDER BY student_order_date";
+                    "INNER JOIN jc_passport_office po_h ON po_h.passport_office_id = so.husband_passport_office_id " +
+                    "INNER JOIN jc_passport_office po_w ON po_w.passport_office_id = so.wife_passport_office_id " +
+                    "WHERE student_order_status = ? ORDER BY student_order_date";
+
+
+    private static final String SELECT_CHILD =
+            "SELECT soc.*, ro.register_office_area_id, ro.register_office_name " +
+                    "FROM jc_student_child soc " +
+                    "INNER JOIN jc_register_office ro ON ro.register_office_id = " +
+                    "soc.child_register_office_id " +
+                    "WHERE soc.student_order_id IN ";
 
     //TODO refactoring - make one method
     private Connection getConnection() throws SQLException {
@@ -49,7 +65,6 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
                         Config.getProperty(Config.DB_PASSWORD));
         return connection;
     }
-
 
 
     @Override
@@ -150,7 +165,9 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(SELECT_ORDERS, new String[]{"student_order_id"})) {
 
+            statement.setInt(1, StudentOrderStatus.START.ordinal());
             ResultSet resultSet = statement.executeQuery();
+
             while (resultSet.next()) {
                 StudentOrder studentOrder = new StudentOrder();
                 fillStudentOrder(resultSet, studentOrder);
@@ -162,6 +179,8 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
 
                 result.add(studentOrder);
             }
+            findChildren(connection, result);
+
             resultSet.close();
         } catch (SQLException e) {
             throw new DaoException(e);
@@ -169,17 +188,33 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
         return result;
     }
 
+    private void findChildren(Connection connection, List<StudentOrder> result) throws SQLException {
+        String cl = "(" + result.stream().map(studentOrder -> String.valueOf(studentOrder
+                .getStudentOrderId())).collect(Collectors.joining(",")) + ")";
+
+        try (PreparedStatement statement = connection.prepareStatement(SELECT_CHILD + cl)){
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                System.out.println(resultSet.getLong(1) + ":"  + resultSet.getString(3));
+            }
+        }
+    }
+
     private Adult fillAdult(ResultSet resultSet, String prefix) throws SQLException {
         Adult adult = new Adult();
         adult.setSurName(resultSet.getString(prefix + "surname"));
         adult.setGivenName(resultSet.getString(prefix + "given_name"));
-        adult.setPatronymic(resultSet.getString(prefix +"patronymic"));
+        adult.setPatronymic(resultSet.getString(prefix + "patronymic"));
         adult.setDateOfBirth(resultSet.getDate(prefix + "date_of_birth").toLocalDate());
         adult.setPassportSerial(resultSet.getString(prefix + "passport_serial"));
         adult.setPassportNumber(resultSet.getString(prefix + "passport_number"));
         adult.setIssueDate(resultSet.getDate(prefix + "passport_date").toLocalDate());
 
-        PassportOffice passportOffice = new PassportOffice(resultSet.getLong(prefix + "passport_office_id"), "", "");
+        Long passportOfficeId = resultSet.getLong(prefix + "passport_office_id");
+        String passportOfficeAdea = resultSet.getString(prefix + "passport_office_area_id");
+        String passportOfficeName = resultSet.getString(prefix + "passport_office_name");
+
+        PassportOffice passportOffice = new PassportOffice(passportOfficeId, passportOfficeAdea, passportOfficeName);
         adult.setIssueDepartment(passportOffice);
         Address address = new Address();
         Street street = new Street(resultSet.getLong(prefix + "street_code"), "");
@@ -202,6 +237,7 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
         studentOrder.setStudentOrderDate(resultSet.getTimestamp("student_order_date").toLocalDateTime());
         studentOrder.setStudentOrderStatus(StudentOrderStatus.fromValue(resultSet.getInt("student_order_status")));
     }
+
     private void fillMarriage(ResultSet resultSet, StudentOrder studentOrder) throws SQLException {
         studentOrder.setMarriageCertificateId(resultSet.getString("certificate_id"));
         studentOrder.setMarriageDate(resultSet.getDate("marriage_date").toLocalDate());
@@ -214,8 +250,6 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
         RegisterOffice registerOffice = new RegisterOffice(registerOfficeId, officeAreaId, officeName);
         studentOrder.setMarriageOffice(registerOffice);
     }
-
-
 
 
 }
