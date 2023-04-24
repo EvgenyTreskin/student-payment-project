@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c035a1e7-996a-473c-8871-9e0aeff59226" name="Changes" comment="3rd test to add maven" />
+    <list default="true" id="c035a1e7-996a-473c-8871-9e0aeff59226" name="Changes" comment="5th test to add maven">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/studentorder/components/Layout.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/studentorder/pages/About.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/studentorder/pages/Error404.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/studentorder/pages/Index.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/studentorder/pages/Login.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/studentorder/services/AppModule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/studentorder/services/DevelopmentModule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/studentorder/services/QaModule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/studentorder/spring/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/studentorder/spring/AppConfiguration.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,19 +42,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Работа/QA/SelfEduAndTestProjects/student-payment-project&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Работа/QA/SelfEduAndTestProjects/student-payment-project",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
+    <configuration name="SaveStudentOrder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.studentorder.SaveStudentOrder" />
+      <module name="student-order" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.studentorder.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -53,6 +80,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SaveStudentOrder" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -70,7 +102,7 @@
       <workItem from="1682334541279" duration="119000" />
       <workItem from="1682335132930" duration="59000" />
       <workItem from="1682335228028" duration="1031000" />
-      <workItem from="1682336367494" duration="464000" />
+      <workItem from="1682336367494" duration="2138000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1682332433895</created>
@@ -100,7 +132,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682336507527</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="4th test to add maven">
+      <created>1682336848377</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682336848377</updated>
+    </task>
+    <task id="LOCAL-00006" summary="5th test to add maven">
+      <created>1682336982407</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682336982407</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,6 +167,8 @@
     <MESSAGE value="test" />
     <MESSAGE value="2nd test to add maven" />
     <MESSAGE value="3rd test to add maven" />
-    <option name="LAST_COMMIT_MESSAGE" value="3rd test to add maven" />
+    <MESSAGE value="4th test to add maven" />
+    <MESSAGE value="5th test to add maven" />
+    <option name="LAST_COMMIT_MESSAGE" value="5th test to add maven" />
   </component>
 </project>
