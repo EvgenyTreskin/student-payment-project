@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c035a1e7-996a-473c-8871-9e0aeff59226" name="Changes" comment="2nd test to add maven">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c035a1e7-996a-473c-8871-9e0aeff59226" name="Changes" comment="3rd test to add maven" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +15,13 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="2OruOJYRtBB6jvHYecai6t4vLGt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -65,6 +70,7 @@
       <workItem from="1682334541279" duration="119000" />
       <workItem from="1682335132930" duration="59000" />
       <workItem from="1682335228028" duration="1031000" />
+      <workItem from="1682336367494" duration="464000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1682332433895</created>
@@ -87,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682335367536</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="3rd test to add maven">
+      <created>1682336507527</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682336507527</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +120,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />
     <MESSAGE value="2nd test to add maven" />
-    <option name="LAST_COMMIT_MESSAGE" value="2nd test to add maven" />
+    <MESSAGE value="3rd test to add maven" />
+    <option name="LAST_COMMIT_MESSAGE" value="3rd test to add maven" />
   </component>
 </project>
