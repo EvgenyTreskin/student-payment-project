@@ -76,13 +76,8 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
                     "WHERE student_order_status = ? ORDER BY so.student_order_id LIMIT ?";
 
 
-    //TODO refactoring - make one method
     private Connection getConnection() throws SQLException {
-        Connection connection = DriverManager.getConnection
-                (Config.getProperty(Config.DB_URL),
-                        Config.getProperty(Config.DB_LOGIN),
-                        Config.getProperty(Config.DB_PASSWORD));
-        return connection;
+        return ConnectionBuilder.getConnection();
     }
 
 
@@ -212,8 +207,8 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
                 studentOrder.addChild(fillChild(resultSet));
                 counter++;
             }
-            if (counter >= limit){
-                result.remove(result.size()-1);
+            if (counter >= limit) {
+                result.remove(result.size() - 1);
             }
             resultSet.close();
         } catch (SQLException e) {

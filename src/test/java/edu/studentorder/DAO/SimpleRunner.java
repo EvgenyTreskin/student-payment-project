@@ -22,8 +22,8 @@ public class SimpleRunner {
 
             Method[] methods = cl.getMethods();
             for (Method m: methods) {
-                Test ann = m.getAnnotation(Test.class);
-                if (ann!=null){
+                Test annotation = m.getAnnotation(Test.class);
+                if (annotation!=null){
                     m.invoke(entity);
                 }
 
