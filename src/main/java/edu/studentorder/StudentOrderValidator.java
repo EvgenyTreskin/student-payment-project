@@ -1,10 +1,12 @@
 package edu.studentorder;
 
+import edu.studentorder.DAO.StudentOrderDaoImpl;
 import edu.studentorder.domain.*;
 import edu.studentorder.domain.children.AnswerChildren;
 import edu.studentorder.domain.register.AnswerCityRegister;
 import edu.studentorder.domain.student.AnswerStudent;
 import edu.studentorder.domain.wedding.AnswerWedding;
+import edu.studentorder.exeption.DaoException;
 import edu.studentorder.mail.MailSender;
 import edu.studentorder.validator.ChildrenValidator;
 import edu.studentorder.validator.CityRegisterValidator;
@@ -37,22 +39,21 @@ public class StudentOrderValidator {
     }
 
     public void checkAll() {
-        List<StudentOrder> studentOrderList = readStudentOrders();
-        for (StudentOrder studentOrder : studentOrderList) {
+        try {
+            List<StudentOrder> studentOrderList = readStudentOrders();
+            for (StudentOrder studentOrder : studentOrderList) {
+                checkOneOrder(studentOrder);
+            }
 
-            checkOneOrder(studentOrder);
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
 
-    public List<StudentOrder> readStudentOrders() {
-        List<StudentOrder> studentOrderList = new LinkedList<>();
-        for (int i = 0; i < 5; i++) {
-            StudentOrder studentOrder = SaveStudentOrder.buildStudentOrder(i);
-            studentOrderList.add(studentOrder);
-        }
-
-        return studentOrderList;
+    public List<StudentOrder> readStudentOrders() throws DaoException {
+        return new StudentOrderDaoImpl().getStudentOrders();
     }
+
 
     public void checkOneOrder(StudentOrder studentOrder) {
 
