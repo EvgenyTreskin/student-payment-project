@@ -7,13 +7,7 @@ import edu.studentorder.domain.Street;
 import edu.studentorder.exeption.DaoException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.sql.Connection;
-import java.sql.Statement;
 import java.util.List;
-import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.*;
 
 class DictionaryDaoImplTest {
