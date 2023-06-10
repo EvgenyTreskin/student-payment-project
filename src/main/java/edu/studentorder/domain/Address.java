@@ -54,8 +54,20 @@ public class Address {
         this.postCode = postCode;
     }
 
+
+
     public void setApartment(String apartment) {
         this.apartment = apartment;
 
+    }
+    @Override
+    public String toString() {
+        return "Address{" +
+                "street=" + street +
+                ", building='" + building + '\'' +
+                ", extension='" + extension + '\'' +
+                ", apartment='" + apartment + '\'' +
+                ", postCode='" + postCode + '\'' +
+                '}';
     }
 }

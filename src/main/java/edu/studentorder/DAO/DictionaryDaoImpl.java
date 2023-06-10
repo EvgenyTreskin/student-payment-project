@@ -6,11 +6,12 @@ import edu.studentorder.domain.PassportOffice;
 import edu.studentorder.domain.RegisterOffice;
 import edu.studentorder.domain.Street;
 import edu.studentorder.exeption.DaoException;
+import lombok.extern.slf4j.Slf4j;
 
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
-
+@Slf4j
 public class DictionaryDaoImpl implements DictionaryDao {
 
     private static final String GET_STREET = "SELECT street_code, street_name " +
@@ -40,6 +41,7 @@ public class DictionaryDaoImpl implements DictionaryDao {
                 result.add(str);
             }
         } catch (SQLException e) {
+            log.error(e.getMessage(), e);
             throw new DaoException(e);
         }
         return result;
@@ -60,6 +62,7 @@ public class DictionaryDaoImpl implements DictionaryDao {
                 result.add(str);
             }
         } catch (SQLException e) {
+            log.error(e.getMessage(), e);
             throw new DaoException(e);
         }
         return result;
@@ -80,6 +83,7 @@ public class DictionaryDaoImpl implements DictionaryDao {
                 result.add(str);
             }
         } catch (SQLException e) {
+            log.error(e.getMessage(), e);
             throw new DaoException(e);
         }
         return result;
@@ -104,6 +108,7 @@ public class DictionaryDaoImpl implements DictionaryDao {
                 result.add(str);
             }
         } catch (SQLException e) {
+            log.error(e.getMessage(), e);
             throw new DaoException(e);
         }
         return result;

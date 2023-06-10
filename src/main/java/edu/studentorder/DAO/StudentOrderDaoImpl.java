@@ -3,6 +3,7 @@ package edu.studentorder.DAO;
 import edu.studentorder.config.Config;
 import edu.studentorder.domain.*;
 import edu.studentorder.exeption.DaoException;
+import lombok.extern.slf4j.Slf4j;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -12,7 +13,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
+@Slf4j
 public class StudentOrderDaoImpl implements StudentOrderDao {
 
     private static final String INSERT_ORDER = "INSERT INTO jc_student_order (\n" +
@@ -85,6 +86,8 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
     public Long saveStudentOrder(StudentOrder studentOrder) throws DaoException {
         Long result = -1L;
 
+        log.debug("StudentOrder:{}", studentOrder);
+
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(INSERT_ORDER, new String[]{"student_order_id"})) {
 
@@ -120,6 +123,7 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
             }
 
         } catch (SQLException e) {
+            log.error(e.getMessage(), e);
             throw new DaoException(e);
         }
         return result;
@@ -212,6 +216,7 @@ public class StudentOrderDaoImpl implements StudentOrderDao {
             }
             resultSet.close();
         } catch (SQLException e) {
+            log.error(e.getMessage(), e);
             throw new DaoException(e);
         }
         return result;

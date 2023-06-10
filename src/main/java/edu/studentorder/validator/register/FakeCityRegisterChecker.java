@@ -40,7 +40,7 @@ public class FakeCityRegisterChecker implements CityRegisterChecker {
                 throw ex;
             }
         }
-        if (person instanceof Child){
+        if (person instanceof Child) {
             response.setExisting(true);
             response.setTemporal(true);
         }

@@ -4,11 +4,16 @@ import edu.studentorder.domain.*;
 import edu.studentorder.exeption.DaoException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.logging.LoggerFactory;
+
 import java.time.LocalDate;
 import java.util.List;
+import java.util.logging.Logger;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class StudentOrderDaoImplTest {
+
 
     StudentOrderDaoImpl studentOrderDaoImpl = new StudentOrderDaoImpl();
 
