@@ -26,7 +26,7 @@ class StudentOrderDaoImplTest {
     void saveStudentOrder() throws DaoException {
         StudentOrder studentOrder = buildStudentOrder(10);
         Long id = new StudentOrderDaoImpl().saveStudentOrder(studentOrder);
-//        assertNotNull(id);
+
     }
 
     @Test
